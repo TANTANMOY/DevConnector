@@ -45,7 +45,7 @@ class Register extends Component {
                       <small className="form-text text-muted">This site uses Gravatar so if you want a profile image, use a Gravatar email</small>
                     </div>
                     <div className="form-group">
-                      <input type="password" className="form-control form-control-lg" placeholder="Password"value={this.state.password}onChange={this.onChange}  name="password" />
+                      <input type="password" className="form-control form-control-lg" placeholder="Password" value={this.state.password}onChange={this.onChange}  name="password" />
                     </div>
                     <div className="form-group">
                       <input type="password" className="form-control form-control-lg" placeholder="Confirm Password" name="password2"value={this.state.password2}onChange={this.onChange}  />
