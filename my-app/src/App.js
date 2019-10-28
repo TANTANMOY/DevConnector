@@ -4,12 +4,24 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Landing from './components/layout/Landing';
 import Login from './components/auth/Login';
+import jwt_decode from 'jwt-decode';
+import setAuthToken from './utils/setAuthToken';
+import {setCurrentUser} from './actions/authActions';
 import Register from './components/auth/Register';
 import { Provider } from 'react-redux';
 import store from './store'
 import './App.css';
 
+//check for token
 
+if(localStorage.jwtToken){
+  //set auth token header auth
+  setAuthToken(localStorage.jwtToken);
+  //decode token and get user info and exp
+  const decoded = jwt_decode(localStorage.jwtToken);
+  //set user and isAuthenticated
+  store.dispatch(setCurrentUser(decoded));
+}
 function App() {
   return (
     <Provider store= { store }>
