@@ -14,6 +14,7 @@ import store from './store'
 import './App.css';
 import Dashboard from './components/dashboard/Dashboard';
 import PrivateRoute from './common/PrivateRoute';
+import CreateProfile from './components/create-profile/CreateProfile';
 
 //check for token
 
@@ -50,6 +51,9 @@ function App() {
           <Route exact path="/login" component={Login}/>
           <Switch>
           <PrivateRoute exact path="/dashboard" component={Dashboard}/>
+          </Switch>
+          <Switch>
+          <PrivateRoute exact path="/create-profile" component={CreateProfile}/>
           </Switch>
         </div>
 
