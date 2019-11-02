@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 const SelectListGroup= ({
     name,
-  
     value,
     error,
     info,
@@ -39,8 +38,8 @@ const SelectListGroup= ({
         {error && <div className="invalid-feedback">{error}</div>
         }
       </div>
-    )
-}
+    );
+};
 
 SelectListGroup.propTypes ={
     name: PropTypes.string.isRequired,

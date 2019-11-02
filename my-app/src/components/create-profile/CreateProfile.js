@@ -5,8 +5,8 @@ import TextFieldGroup from '../../common/TextFieldGroup';
 import TextAreaFieldGroup from '../../common/TextAreaFieldGroup';
 import InputGroup from '../../common/InputGroup';
 import SelectListGroup from '../../common/SelectListGroup';
-
-
+import { createProfile } from '../../actions/profileActions';
+import {withRouter} from 'react-router-dom';
 
 
 
@@ -33,20 +33,42 @@ class CreateProfile extends Component {
             youtube:'',
             instagram:'',
             errors:{}
-        }
+        };
+
         this.onChange = this.onChange.bind(this);
         this.onSubmit= this.onSubmit.bind(this);
     }
+    UNSAFE_componentWillReceiveProps(nextProps){
+        if(nextProps.errors){
+            this.setState({errors: nextProps.errors});
+        }
+    }
     onSubmit(e){
         e.preventDefault();
-        console.log('submit');
+        
+        const profileData = {
+            handle:this.state.handle,
+            company:this.state.company,
+            website:this.state.website,
+            location:this.state.location,
+            status:this.state.status,
+            skills:this.state.skills,
+            githubusername:this.state.githubusername,
+            bio:this.state.bio,
+            twitter:this.state.twitter,
+            facebook:this.state.facebook,
+            linkedin:this.state.linkedin,
+            youtube:this.state.youtube,
+            instagram:this.state.instagram   
+        };
+        this.props.createProfile(profileData, this.props.history);
     }
     onChange(e){
         this.setState({[e.target.name ]: e.target.value});
     }
     render() {
 
-        const {errors , displaySocialInputs} =this.state;
+        const {errors, displaySocialInputs} =this.state;
         let socialInputs;
         if(displaySocialInputs){
              socialInputs = (
@@ -95,9 +117,7 @@ class CreateProfile extends Component {
                 </div>
              )
         }
-        else{
-
-        }
+       
         //select options for status
         const options = [
             {label: 'select Professional status', value: 0 },
@@ -112,7 +132,7 @@ class CreateProfile extends Component {
         ];
         return (
             <div className="create-profile">
-                <div class="container">
+                <div className="container">
                     <div className="row">
                       <div className="col-md-8 m-auto">
                           <h1 className="display-4 text-center">Create Your Profile</h1>
@@ -220,4 +240,4 @@ const mapStateToProps = state => ({
     profile: state.profile,
     errors: state.errors
 });
-export default connect(mapStateToProps)(CreateProfile);
+export default connect(mapStateToProps, {createProfile})(withRouter(CreateProfile));
