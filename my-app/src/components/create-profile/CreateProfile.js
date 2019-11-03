@@ -165,7 +165,7 @@ class CreateProfile extends Component {
                             <TextFieldGroup
                             placeholder="Company"
                             name="company"
-                            value={this.state.handle}
+                            value={this.state.company}
                             onChange={this.onChange}
                             error={errors.company}
                             info="Could be your own company or one you work for"
@@ -174,7 +174,7 @@ class CreateProfile extends Component {
                         <TextFieldGroup
                             placeholder="Website"
                             name="website"
-                            value={this.state.handle}
+                            value={this.state.website}
                             onChange={this.onChange}
                             error={errors.website}
                             info="could be your own website or a company one"
@@ -182,7 +182,7 @@ class CreateProfile extends Component {
                               <TextFieldGroup
                             placeholder="Location"
                             name="location"
-                            value={this.state.handle}
+                            value={this.state.location}
                             onChange={this.onChange}
                             error={errors.location}
                             info="City or state "
@@ -190,7 +190,7 @@ class CreateProfile extends Component {
                              <TextFieldGroup
                             placeholder="Skills"
                             name="skills"
-                            value={this.state.handle}
+                            value={this.state.skills}
                             onChange={this.onChange}
                             error={errors.skills}
                             info="please use comma separated value(eg. HTML,CSS,Javascript,PHP)"
@@ -198,7 +198,7 @@ class CreateProfile extends Component {
                               <TextFieldGroup
                             placeholder="Github Username"
                             name="githubusername"
-                            value={this.state.handle}
+                            value={this.state.githubusername}
                             onChange={this.onChange}
                             error={errors.githubusername}
                             info="If you want your latest repos and a Github link, include your username"
@@ -206,13 +206,15 @@ class CreateProfile extends Component {
                              <TextFieldGroup
                             placeholder="Short Bio"
                             name="bio"
-                            value={this.state.handle}
+                            value={this.state.bio}
                             onChange={this.onChange}
                             error={errors.bio}
                             info="Tell us a litte about yourself"
                             />
                             <div className="mb-3">
-                                <button onClick={()=> {
+                                <button 
+                                type="button"
+                                onClick={()=> {
                                     this.setState(prevState=> ({
                                         displaySocialInputs: !prevState.displaySocialInputs}))
                                     }}
