@@ -5,6 +5,7 @@ import {getCurrentProfile,deleteAccount  } from '../../actions/profileActions';
 import Spinner from '../../common/spinner';
 import {Link } from 'react-router-dom';
 import ProfileAction from './ProfileAction';
+import Experience from './Experience';
 
 class Dashboard extends Component {
     componentDidMount() {
@@ -32,7 +33,8 @@ class Dashboard extends Component {
                         <p className="lead ">
                     Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link></p>
                     <ProfileAction />
-                   {/* TODO: exp and edu */ }
+                   <Experience experience={profile.experience} />
+
                    <div style={{marginBottom: '60px'}} />
                    
                    <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">Delete

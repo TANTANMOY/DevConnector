@@ -9,7 +9,6 @@
     "server": "nodemon server.js ",
     "client": "npm start --prefix my-app",
     "dev": "concurrently \"npm run server\" \"npm run client\""
-    
   },
   "author": "Tanmoy Mandal",
   "license": "ISC",
@@ -20,9 +19,11 @@
     "express": "^4.17.1",
     "gravatar": "^1.8.0",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
     "mongoose": "^5.7.5",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
+    "react-moment": "^0.9.6",
     "validator": "^11.1.0"
   },
   "devDependencies": {
