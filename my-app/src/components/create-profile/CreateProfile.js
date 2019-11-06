@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import TextFieldGroup from '../../common/TextFieldGroup';
-
 import InputGroup from '../../common/InputGroup';
 import SelectListGroup from '../../common/SelectListGroup';
 import { createProfile } from '../../actions/profileActions';
@@ -172,7 +171,7 @@ class CreateProfile extends Component {
                             info="Could be your own company or one you work for"
                             />
 
-                        <TextFieldGroup
+                            <TextFieldGroup
                             placeholder="Website"
                             name="website"
                             value={this.state.website}

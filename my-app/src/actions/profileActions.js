@@ -40,19 +40,20 @@ export const getProfileByHandle  =(handle) => dispatch => {
         })
         );
 
-}
+};
 
 
 //create profile
 export const createProfile = (profileData, history) => dispatch => {
 axios.post('/api/profile', profileData)
-.then(res => history.push('dashboard'))
+.then(res => history.push('/dashboard'))
 .catch(err => 
     dispatch({
         type: GET_ERRORS,
         payload: err.response.data
-    }))
-}
+    })
+    );
+};
 
 //Add experience
 
@@ -77,8 +78,8 @@ axios.post('/api/profile', profileData)
                 type: GET_ERRORS,
                 payload: err.response.data
             })
-            )
-    }
+            );
+    };
 
 
     // Delete experience
@@ -133,7 +134,7 @@ axios.post('/api/profile', profileData)
             .catch(err =>
                 dispatch({
                     type: GET_PROFILES,
-                    payload: err.response.data
+                    payload: null
                 })
             );
         };
@@ -153,21 +154,21 @@ export const deleteAccount = () => dispatch => {
                 dispatch({
                     type: GET_ERRORS,
                     payload:err.response.data
-    })
+                     })
                 );
     }
-}
+};
 
 //profile loading
 export const setProfileLoading = () => {
     return {
         type: PROFILE_LOADING
-    }
-}
+    };
+};
 
 // clear profile
 export const clearCurrentProfile = () => {
     return {
         type: CLEAR_CURRENT_PROFILE
-    }
-}
+    };
+};

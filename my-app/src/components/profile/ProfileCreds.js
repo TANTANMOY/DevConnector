@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types';
-import isEmpty from '../../validation/is-empty';
+
 
 import Moment from 'react-moment';
 
@@ -14,7 +13,7 @@ class ProfileCreds extends Component {
          
             <p>
                 <Moment format="YYYY/MM/DD">{exp.from}</Moment> - 
-                {exp.to === null ? ('NOW') : ( <Moment format="YYYY/MM/DD">{exp.to}</Moment>)}
+                {exp.to === null ? (' NOW') : ( <Moment format="YYYY/MM/DD">{exp.to}</Moment>)}
             </p>
             <p>
                 <strong>
@@ -35,8 +34,8 @@ class ProfileCreds extends Component {
                     </span>)}
             </p>
             </li>
-        ))
-        const eduItems = experience.map(edu=> (
+        ));
+        const eduItems = education.map(edu => (
             <li key ={edu._id} className="list-group-item">
                 <h4>{edu.school}</h4>
          

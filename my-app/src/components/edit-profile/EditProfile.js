@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import TextFieldGroup from '../../common/TextFieldGroup';
-
 import InputGroup from '../../common/InputGroup';
 import SelectListGroup from '../../common/SelectListGroup';
 import { createProfile,getCurrentProfile } from '../../actions/profileActions';
@@ -10,12 +9,10 @@ import {Link,withRouter} from 'react-router-dom';
 import isEmpty from '../../validation/is-empty';
 
 
-
-
-
 class CreateProfile extends Component {
 
     constructor(props){
+
         super(props);
         this.state = {
             displaySocialInputs: false,
@@ -55,7 +52,9 @@ class CreateProfile extends Component {
         profile.company = !isEmpty(profile.company) ? profile.company: '';
         profile.website = !isEmpty(profile.website) ? profile.website: '';
         profile.location = !isEmpty(profile.location) ? profile.location: '';
-        profile.githubusername = !isEmpty(profile.githubusername) ? profile.githubusername: '';
+        profile.githubusername = !isEmpty(profile.githubusername)
+        ? profile.githubusername
+        : '';
         profile.bio = !isEmpty(profile.bio) ? profile.bio: '';
         profile.social = !isEmpty(profile.social) ? profile.social : {};
 
@@ -77,7 +76,7 @@ class CreateProfile extends Component {
             location:profile.location,
             status:profile.status,
             skills:skillsCSV,
-            githubusername:profile.githubusername,
+            githubusername: profile.githubusername,
             bio:profile.bio,
             twitter:profile.twitter,
             facebook:profile.facebook,
@@ -241,7 +240,7 @@ class CreateProfile extends Component {
                             error={errors.skills}
                             info="please use comma separated value(eg. HTML,CSS,Javascript,PHP)"
                             />
-                              <TextFieldGroup
+                             <TextFieldGroup
                             placeholder="Github Username"
                             name="githubusername"
                             value={this.state.githubusername}
