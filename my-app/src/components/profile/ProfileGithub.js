@@ -34,16 +34,19 @@ import {Link } from 'react-router-dom';
     
   render() {
     const { repos } = this.state;
+    const { username } = this.props;
 
     const repoItems = repos.map(repo => (
       <div key={repo.id} className="card card-body mb-2">
         <div className="row">
           <div className="col-md-6">
+         
+               
           <h4>
-              {/* <Link to={repo.html_url} className="text-info" target="_blank">
+          <a href={repo.html_url} className="text-info" target="_blank">
                 {repo.name}
-              </Link> */}
-               {repo.name}
+                </a>
+             
             </h4>
             <p>{repo.description}</p>
           </div>
@@ -62,12 +65,14 @@ import {Link } from 'react-router-dom';
       </div>
     ));
         return (
+          
             <div ref="myRef">
                
                <hr />
                <h3 className="md-4">
+                 
                    Latest Github Repos
-                
+                  
                </h3>
                {repoItems}
             </div>
@@ -78,3 +83,4 @@ ProfileGithub.propTypes = {
     username: PropTypes.string.isRequired
   };
 export default ProfileGithub;
+
