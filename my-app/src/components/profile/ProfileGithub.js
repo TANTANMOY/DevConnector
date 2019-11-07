@@ -45,7 +45,7 @@ import {Link } from 'react-router-dom';
           <h4>
           <a href={repo.html_url} className="text-info" target="_blank">
                 {repo.name}
-                </a>
+           </a>
              
             </h4>
             <p>{repo.description}</p>
